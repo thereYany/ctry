@@ -6,7 +6,7 @@ package com.wherelee.ctry.bootstrap;
 // 属于「业务装配」而不是「内核能力」，因此放在 bootstrap 包、不归属任何业务模块，
 // 避免 platform 内核反向依赖业务表（A 期数据所有权规则 R1）。
 
-import com.wherelee.edu.modules.platform.common.PasswordGenerator;
+import com.wherelee.base.modules.platform.common.PasswordGenerator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;

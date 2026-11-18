@@ -1,6 +1,6 @@
 package com.wherelee.ctry.modules.operations.admin.dto;
 
-import com.wherelee.edu.modules.platform.common.validation.StrongPassword;
+import com.wherelee.base.modules.platform.common.validation.StrongPassword;
 import jakarta.validation.constraints.NotBlank;
 
 public record ResetPasswordRequest(

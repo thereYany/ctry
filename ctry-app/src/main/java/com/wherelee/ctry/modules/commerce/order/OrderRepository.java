@@ -1,6 +1,6 @@
 package com.wherelee.ctry.modules.commerce.order;
 
-import com.wherelee.edu.modules.platform.tenant.TenantContext;
+import com.wherelee.base.modules.platform.tenant.TenantContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;

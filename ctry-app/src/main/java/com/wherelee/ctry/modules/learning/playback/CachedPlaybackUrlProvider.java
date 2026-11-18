@@ -1,8 +1,8 @@
 package com.wherelee.ctry.modules.learning.playback;
 
 import com.wherelee.ctry.contracts.learning.PlaybackUrlProvider;
-import com.wherelee.edu.modules.platform.storage.SignedUrlCache;
-import com.wherelee.edu.modules.platform.tracing.TraceSpans;
+import com.wherelee.base.modules.platform.storage.SignedUrlCache;
+import com.wherelee.base.modules.platform.tracing.TraceSpans;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;

@@ -1,8 +1,8 @@
 package com.wherelee.ctry.modules.commerce.order;
 
-import com.wherelee.edu.modules.payment.api.PaymentEventTypes;
-import com.wherelee.edu.modules.payment.api.PaymentSettledEvent;
-import com.wherelee.edu.modules.payment.api.PaymentSettledListener;
+import com.wherelee.base.modules.payment.api.PaymentEventTypes;
+import com.wherelee.base.modules.payment.api.PaymentSettledEvent;
+import com.wherelee.base.modules.payment.api.PaymentSettledListener;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

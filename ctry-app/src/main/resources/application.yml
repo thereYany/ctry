@@ -193,4 +193,4 @@ logging:
     level: "%5p [traceId=%X{traceId:-}]"
   level:
     com.wherelee.ctry: info
-    com.wherelee.edu: info
+    com.wherelee.base: info

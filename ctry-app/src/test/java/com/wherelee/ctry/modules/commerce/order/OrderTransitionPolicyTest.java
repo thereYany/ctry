@@ -1,6 +1,6 @@
 package com.wherelee.ctry.modules.commerce.order;
 
-import com.wherelee.edu.modules.platform.common.BizException;
+import com.wherelee.base.modules.platform.common.BizException;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

@@ -1,9 +1,9 @@
 package com.wherelee.ctry.modules.commerce.order;
 
-import com.wherelee.edu.modules.payment.*;
+import com.wherelee.base.modules.payment.*;
 
-import com.wherelee.edu.modules.platform.common.BizException;
-import com.wherelee.edu.modules.platform.tracing.TraceSpans;
+import com.wherelee.base.modules.platform.common.BizException;
+import com.wherelee.base.modules.platform.tracing.TraceSpans;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,13 +28,13 @@ class OrderPaymentServiceTest {
     @Mock private com.wherelee.ctry.modules.commerce.entitlement.EntitlementRepository entitlementRepository;
     @Mock private PaymentGateway paymentGateway;
     @Mock private PaymentOrderRepository paymentOrderRepository;
-    @Mock private com.wherelee.edu.modules.payment.PaymentFacade paymentFacade;
+    @Mock private com.wherelee.base.modules.payment.PaymentFacade paymentFacade;
     @Mock private PaymentConfirmationService confirmationService;
     @Mock private OrderFulfillmentService fulfillmentService;
     @Mock private MockSignatureService signatureService;
     @Mock private PaymentMetrics metrics;
     @Mock private PaymentQueryService paymentQueryService;
-    @Mock private com.wherelee.edu.modules.payment.outbox.PaymentOutboxDispatcher outboxDispatcher;
+    @Mock private com.wherelee.base.modules.payment.outbox.PaymentOutboxDispatcher outboxDispatcher;
 
     private OrderPaymentService service;
 
@@ -66,7 +66,7 @@ class OrderPaymentServiceTest {
         OrderRecord order = order();
         when(orderService.requireOwned(1L, "ORD-1")).thenReturn(order);
         when(paymentFacade.initiate(any())).thenReturn(
-                new com.wherelee.edu.modules.contracts.payment.PaymentOperations.InitiateResult(
+                new com.wherelee.base.modules.contracts.payment.PaymentOperations.InitiateResult(
                         "PORD-1", "PAYING", "ALIPAY", "/mock-pay/ORD-1"));
         when(orderRepository.markPaying(eq("ORD-1"), eq("ALIPAY"))).thenReturn(1);
 

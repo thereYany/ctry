@@ -2,10 +2,10 @@ package com.wherelee.ctry.modules.course.governance;
 
 import com.wherelee.ctry.contracts.commerce.EntitlementQuery;
 import com.wherelee.ctry.contracts.course.CourseGovernance;
-import com.wherelee.edu.modules.contracts.identity.AccountDirectory;
-import com.wherelee.edu.modules.platform.common.BizException;
-import com.wherelee.edu.modules.platform.tenant.TenantContext;
-import com.wherelee.edu.modules.platform.common.PageResult;
+import com.wherelee.base.modules.contracts.identity.AccountDirectory;
+import com.wherelee.base.modules.platform.common.BizException;
+import com.wherelee.base.modules.platform.tenant.TenantContext;
+import com.wherelee.base.modules.platform.common.PageResult;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

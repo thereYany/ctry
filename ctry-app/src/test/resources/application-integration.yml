@@ -74,4 +74,4 @@ logging:
   level:
     root: warn
     com.wherelee.ctry: warn
-    com.wherelee.edu: warn
+    com.wherelee.base: warn

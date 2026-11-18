@@ -1,8 +1,8 @@
 package com.wherelee.ctry.modules.course.governance;
 
 import com.wherelee.ctry.contracts.commerce.EntitlementQuery;
-import com.wherelee.edu.modules.contracts.identity.AccountDirectory;
-import com.wherelee.edu.modules.platform.common.BizException;
+import com.wherelee.base.modules.contracts.identity.AccountDirectory;
+import com.wherelee.base.modules.platform.common.BizException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -3,9 +3,9 @@ package com.wherelee.ctry.modules.learning.playback;
 import com.wherelee.ctry.contracts.commerce.EntitlementQuery;
 import com.wherelee.ctry.contracts.course.CatalogQuery;
 import com.wherelee.ctry.contracts.course.CatalogQuery.VideoContext;
-import com.wherelee.edu.modules.platform.aop.Measured;
+import com.wherelee.base.modules.platform.aop.Measured;
 import com.wherelee.ctry.contracts.learning.PlaybackEventPublisher;
-import com.wherelee.edu.modules.platform.common.web.TraceIdFilter;
+import com.wherelee.base.modules.platform.common.web.TraceIdFilter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

@@ -1,9 +1,9 @@
 package com.wherelee.ctry.modules.commerce.integration;
 
-import com.wherelee.edu.modules.payment.PaymentConfirmationService;
-import com.wherelee.edu.modules.payment.PaymentNotification;
-import com.wherelee.edu.modules.payment.PaymentRepository;
-import com.wherelee.edu.modules.contracts.payment.PaymentOperations;
+import com.wherelee.base.modules.payment.PaymentConfirmationService;
+import com.wherelee.base.modules.payment.PaymentNotification;
+import com.wherelee.base.modules.payment.PaymentRepository;
+import com.wherelee.base.modules.contracts.payment.PaymentOperations;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

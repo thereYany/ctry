@@ -1,7 +1,7 @@
 package com.wherelee.ctry.modules.commerce.integration;
 
 import com.wherelee.ctry.modules.commerce.order.OrderRepository;
-import com.wherelee.edu.modules.platform.tenant.TenantContext;
+import com.wherelee.base.modules.platform.tenant.TenantContext;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

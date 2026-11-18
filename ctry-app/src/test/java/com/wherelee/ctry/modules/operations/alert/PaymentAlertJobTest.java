@@ -1,8 +1,8 @@
 package com.wherelee.ctry.modules.operations.alert;
 
-import com.wherelee.edu.modules.contracts.payment.PaymentAlertQueries;
-import com.wherelee.edu.modules.platform.alert.AlertPublisher;
-import com.wherelee.edu.modules.platform.resilience.LocalFallbackCache;
+import com.wherelee.base.modules.contracts.payment.PaymentAlertQueries;
+import com.wherelee.base.modules.platform.alert.AlertPublisher;
+import com.wherelee.base.modules.platform.resilience.LocalFallbackCache;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;

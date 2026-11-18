@@ -18,8 +18,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication(scanBasePackages = {
         "com.wherelee.ctry",
-        "com.wherelee.edu.modules.identity",
-        "com.wherelee.edu.modules.payment"
+        "com.wherelee.base.modules.identity",
+        "com.wherelee.base.modules.payment"
 })
 @MapperScan({
         "com.wherelee.ctry.modules.course.governance",

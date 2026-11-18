@@ -9,7 +9,7 @@ import io.micrometer.core.instrument.MeterRegistry;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import lombok.extern.slf4j.Slf4j;
-import com.wherelee.edu.modules.platform.tenant.TenantContext;
+import com.wherelee.base.modules.platform.tenant.TenantContext;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

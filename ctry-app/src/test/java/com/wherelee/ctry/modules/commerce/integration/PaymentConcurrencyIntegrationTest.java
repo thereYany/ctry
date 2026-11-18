@@ -31,7 +31,7 @@ class PaymentConcurrencyIntegrationTest extends CommerceIntegrationTestSupport {
         pay(order.orderNo());
         var notification = successNotification(order.orderNo());
 
-        List<CallResult<com.wherelee.edu.modules.payment.PaymentConfirmationService.ConfirmationResult>> results =
+        List<CallResult<com.wherelee.base.modules.payment.PaymentConfirmationService.ConfirmationResult>> results =
                 runConcurrently(20, () -> paymentService.acceptVerified(notification));
 
         assertThat(results).allSatisfy(result -> assertThat(result.error()).isNull());
@@ -49,7 +49,7 @@ class PaymentConcurrencyIntegrationTest extends CommerceIntegrationTestSupport {
         pay(order.orderNo());
         var attempt = paymentRepository.findLatestAttemptByPaymentNo("P" + order.orderNo()).orElseThrow();
 
-        var result = paymentService.acceptVerified(new com.wherelee.edu.modules.payment.PaymentNotification(
+        var result = paymentService.acceptVerified(new com.wherelee.base.modules.payment.PaymentNotification(
                 "MOCK",
                 "IT:" + order.orderNo() + ":MISMATCH",
                 order.orderNo(),
@@ -74,7 +74,7 @@ class PaymentConcurrencyIntegrationTest extends CommerceIntegrationTestSupport {
         completePayment(order.orderNo());
         var attempt = paymentRepository.findLatestAttemptByPaymentNo("P" + order.orderNo()).orElseThrow();
 
-        var result = paymentService.acceptVerified(new com.wherelee.edu.modules.payment.PaymentNotification(
+        var result = paymentService.acceptVerified(new com.wherelee.base.modules.payment.PaymentNotification(
                 "MOCK",
                 "IT:" + order.orderNo() + ":LATE_FAILURE",
                 order.orderNo(),

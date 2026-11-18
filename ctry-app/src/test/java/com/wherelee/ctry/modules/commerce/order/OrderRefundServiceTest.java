@@ -1,10 +1,10 @@
 package com.wherelee.ctry.modules.commerce.order;
 
-import com.wherelee.edu.modules.payment.*;
+import com.wherelee.base.modules.payment.*;
 
 import com.wherelee.ctry.modules.commerce.entitlement.EntitlementRepository;
-import com.wherelee.edu.modules.platform.alert.AlertPublisher;
-import com.wherelee.edu.modules.platform.tracing.TraceSpans;
+import com.wherelee.base.modules.platform.alert.AlertPublisher;
+import com.wherelee.base.modules.platform.tracing.TraceSpans;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

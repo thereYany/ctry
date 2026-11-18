@@ -1,8 +1,8 @@
 package com.wherelee.ctry.modules.course.catalog;
 
 import com.wherelee.ctry.contracts.course.CatalogQuery;
-import com.wherelee.edu.modules.contracts.identity.AccountDirectory;
-import com.wherelee.edu.modules.platform.tenant.TenantContext;
+import com.wherelee.base.modules.contracts.identity.AccountDirectory;
+import com.wherelee.base.modules.platform.tenant.TenantContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 

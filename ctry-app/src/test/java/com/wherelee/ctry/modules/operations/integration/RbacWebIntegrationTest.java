@@ -1,9 +1,9 @@
 package com.wherelee.ctry.modules.operations.integration;
 
 import com.wherelee.ctry.modules.commerce.integration.CommerceIntegrationTestSupport;
-import com.wherelee.edu.modules.identity.security.JwtService;
-import com.wherelee.edu.modules.identity.user.User;
-import com.wherelee.edu.modules.identity.user.UserRepository;
+import com.wherelee.base.modules.identity.security.JwtService;
+import com.wherelee.base.modules.identity.user.User;
+import com.wherelee.base.modules.identity.user.UserRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

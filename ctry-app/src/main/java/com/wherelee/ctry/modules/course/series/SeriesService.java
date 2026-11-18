@@ -1,8 +1,8 @@
 package com.wherelee.ctry.modules.course.series;
 
-import com.wherelee.edu.modules.platform.aop.Measured;
+import com.wherelee.base.modules.platform.aop.Measured;
 import com.wherelee.ctry.modules.learning.playback.PlaybackAudit;
-import com.wherelee.edu.modules.platform.common.BizException;
+import com.wherelee.base.modules.platform.common.BizException;
 import com.wherelee.ctry.contracts.learning.PlaybackEventPublisher;
 import com.wherelee.ctry.modules.course.series.dto.SeriesDtos;
 import com.wherelee.ctry.contracts.learning.PlaybackUrlProvider;

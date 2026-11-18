@@ -96,7 +96,7 @@ btry 是 10～20 人教培机构的内部录播平台，已有课程、订单、
 在现有 Spring Boot 后端中增加一个模块：
 
 ```text
-com.wherelee.edu.modules.assistant
+com.wherelee.base.modules.assistant
   api/           对外端口
   chat/          会话、消息、SSE
   tools/         业务工具适配器

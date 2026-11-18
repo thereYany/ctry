@@ -1,8 +1,8 @@
 package com.wherelee.ctry.modules.course.teacher;
 
 import com.wherelee.ctry.modules.course.series.dto.SeriesDtos;
-import com.wherelee.edu.modules.platform.tenant.TenantContext;
-import com.wherelee.edu.modules.platform.tenant.TenantSqlRewriter;
+import com.wherelee.base.modules.platform.tenant.TenantContext;
+import com.wherelee.base.modules.platform.tenant.TenantSqlRewriter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;

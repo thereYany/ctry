@@ -1,11 +1,11 @@
 package com.wherelee.ctry.modules.commerce.order;
 
-import com.wherelee.edu.modules.platform.alert.AlertPublisher;
+import com.wherelee.base.modules.platform.alert.AlertPublisher;
 import com.wherelee.ctry.modules.commerce.entitlement.EntitlementRepository;
-import com.wherelee.edu.modules.payment.PaymentAttemptRecord;
-import com.wherelee.edu.modules.payment.PaymentMetrics;
-import com.wherelee.edu.modules.payment.PaymentRepository;
-import com.wherelee.edu.modules.platform.tracing.TraceSpans;
+import com.wherelee.base.modules.payment.PaymentAttemptRecord;
+import com.wherelee.base.modules.payment.PaymentMetrics;
+import com.wherelee.base.modules.payment.PaymentRepository;
+import com.wherelee.base.modules.platform.tracing.TraceSpans;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -57,7 +57,7 @@ public class OrderFulfillmentService {
         }
 
         PaymentAttemptRecord attempt = paymentRepository
-                .findLatestAttemptByPaymentNo(com.wherelee.edu.modules.payment.PaymentNo.of(orderNo))
+                .findLatestAttemptByPaymentNo(com.wherelee.base.modules.payment.PaymentNo.of(orderNo))
                 .orElse(null);
         boolean failOnce = attempt != null
                 && "FULFILLMENT_FAIL_ONCE".equals(attempt.mockScenario())

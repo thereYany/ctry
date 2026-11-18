@@ -2,11 +2,11 @@ package com.wherelee.ctry.modules.operations.admin;
 
 import com.wherelee.ctry.modules.CtryPermissionCodes;
 import com.wherelee.ctry.modules.operations.admin.dto.AdminSeriesDtos;
-import com.wherelee.edu.modules.platform.aop.AdminAudit;
-import com.wherelee.edu.modules.platform.aop.Idempotent;
-import com.wherelee.edu.modules.platform.aop.Measured;
-import com.wherelee.edu.modules.platform.aop.RequirePermission;
-import com.wherelee.edu.modules.platform.common.PageResult;
+import com.wherelee.base.modules.platform.aop.AdminAudit;
+import com.wherelee.base.modules.platform.aop.Idempotent;
+import com.wherelee.base.modules.platform.aop.Measured;
+import com.wherelee.base.modules.platform.aop.RequirePermission;
+import com.wherelee.base.modules.platform.common.PageResult;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

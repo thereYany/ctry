@@ -3,7 +3,7 @@ package com.wherelee.ctry.modules.learning.learning;
 import com.wherelee.ctry.contracts.commerce.EntitlementQuery;
 import com.wherelee.ctry.contracts.course.CatalogQuery;
 import com.wherelee.ctry.contracts.course.CatalogQuery.VideoContext;
-import com.wherelee.edu.modules.platform.common.BizException;
+import com.wherelee.base.modules.platform.common.BizException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

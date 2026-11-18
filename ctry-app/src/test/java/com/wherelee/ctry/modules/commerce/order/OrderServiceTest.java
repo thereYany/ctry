@@ -1,11 +1,11 @@
 package com.wherelee.ctry.modules.commerce.order;
 
-import com.wherelee.edu.modules.platform.common.BizException;
+import com.wherelee.base.modules.platform.common.BizException;
 import com.wherelee.ctry.modules.commerce.entitlement.EntitlementRepository;
 import com.wherelee.ctry.contracts.commerce.OrderDtos;
-import com.wherelee.edu.modules.payment.PaymentProperties;
-import com.wherelee.edu.modules.payment.PaymentRepository;
-import com.wherelee.edu.modules.payment.PaymentMetrics;
+import com.wherelee.base.modules.payment.PaymentProperties;
+import com.wherelee.base.modules.payment.PaymentRepository;
+import com.wherelee.base.modules.payment.PaymentMetrics;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,8 +1,8 @@
 package com.wherelee.ctry.modules.commerce.order;
 
 import com.wherelee.ctry.modules.CtryPermissionCodes;
-import com.wherelee.edu.modules.platform.aop.Measured;
-import com.wherelee.edu.modules.platform.aop.RequirePermission;
+import com.wherelee.base.modules.platform.aop.Measured;
+import com.wherelee.base.modules.platform.aop.RequirePermission;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;

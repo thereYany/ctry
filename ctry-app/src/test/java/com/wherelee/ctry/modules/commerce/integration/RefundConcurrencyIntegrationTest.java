@@ -3,7 +3,7 @@ package com.wherelee.ctry.modules.commerce.integration;
 import com.wherelee.ctry.modules.commerce.order.OrderRecord;
 import com.wherelee.ctry.modules.commerce.order.OrderStatus;
 import com.wherelee.ctry.contracts.commerce.OrderDtos;
-import com.wherelee.edu.modules.payment.RefundRecord;
+import com.wherelee.base.modules.payment.RefundRecord;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

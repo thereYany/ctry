@@ -1,6 +1,6 @@
 package com.wherelee.ctry.modules.learning.playback;
 
-import com.wherelee.edu.modules.platform.tenant.TenantContext;
+import com.wherelee.base.modules.platform.tenant.TenantContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;

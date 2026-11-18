@@ -1,9 +1,9 @@
 package com.wherelee.ctry.modules.operations.admin;
 
-import com.wherelee.edu.modules.contracts.identity.RoleAdminOperations;
-import com.wherelee.edu.modules.platform.aop.AdminAudit;
-import com.wherelee.edu.modules.platform.aop.PermissionCodes;
-import com.wherelee.edu.modules.platform.aop.RequirePermission;
+import com.wherelee.base.modules.contracts.identity.RoleAdminOperations;
+import com.wherelee.base.modules.platform.aop.AdminAudit;
+import com.wherelee.base.modules.platform.aop.PermissionCodes;
+import com.wherelee.base.modules.platform.aop.RequirePermission;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;

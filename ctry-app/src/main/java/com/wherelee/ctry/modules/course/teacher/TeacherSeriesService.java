@@ -1,7 +1,7 @@
 package com.wherelee.ctry.modules.course.teacher;
 
-import com.wherelee.edu.modules.contracts.identity.AccountDirectory;
-import com.wherelee.edu.modules.platform.common.BizException;
+import com.wherelee.base.modules.contracts.identity.AccountDirectory;
+import com.wherelee.base.modules.platform.common.BizException;
 import com.wherelee.ctry.modules.course.series.dto.SeriesDtos;
 import org.springframework.stereotype.Service;
 

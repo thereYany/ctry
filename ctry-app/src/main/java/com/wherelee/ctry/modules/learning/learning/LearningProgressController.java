@@ -1,9 +1,9 @@
 package com.wherelee.ctry.modules.learning.learning;
 
 import com.wherelee.ctry.modules.CtryPermissionCodes;
-import com.wherelee.edu.modules.platform.aop.Measured;
-import com.wherelee.edu.modules.platform.aop.RateLimit;
-import com.wherelee.edu.modules.platform.aop.RequirePermission;
+import com.wherelee.base.modules.platform.aop.Measured;
+import com.wherelee.base.modules.platform.aop.RateLimit;
+import com.wherelee.base.modules.platform.aop.RequirePermission;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;

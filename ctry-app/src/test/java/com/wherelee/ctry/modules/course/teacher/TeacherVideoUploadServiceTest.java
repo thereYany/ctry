@@ -1,8 +1,8 @@
 package com.wherelee.ctry.modules.course.teacher;
 
 import com.qcloud.cos.model.ObjectMetadata;
-import com.wherelee.edu.modules.platform.common.BizException;
-import com.wherelee.edu.modules.platform.storage.CosObjectStorage;
+import com.wherelee.base.modules.platform.common.BizException;
+import com.wherelee.base.modules.platform.storage.CosObjectStorage;
 import com.wherelee.ctry.modules.course.teacher.dto.TeacherVideoUploadDtos;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

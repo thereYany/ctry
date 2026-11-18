@@ -1,6 +1,6 @@
 package com.wherelee.ctry.modules.commerce.order;
 
-import com.wherelee.edu.modules.platform.common.BizException;
+import com.wherelee.base.modules.platform.common.BizException;
 
 /**
  * 订单状态转换策略。

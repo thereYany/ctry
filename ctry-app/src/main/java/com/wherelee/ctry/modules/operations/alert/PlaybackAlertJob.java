@@ -1,12 +1,12 @@
 package com.wherelee.ctry.modules.operations.alert;
 
 import com.wherelee.ctry.contracts.learning.PlaybackStatsQuery;
-import com.wherelee.edu.modules.platform.alert.AlertLogRepository;
+import com.wherelee.base.modules.platform.alert.AlertLogRepository;
 
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
-import com.wherelee.edu.modules.platform.resilience.LocalFallbackCache;
-import com.wherelee.edu.modules.platform.resilience.RedisFallbackMetrics;
+import com.wherelee.base.modules.platform.resilience.LocalFallbackCache;
+import com.wherelee.base.modules.platform.resilience.RedisFallbackMetrics;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
 import lombok.extern.slf4j.Slf4j;

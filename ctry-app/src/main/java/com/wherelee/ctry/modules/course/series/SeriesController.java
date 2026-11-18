@@ -1,8 +1,8 @@
 package com.wherelee.ctry.modules.course.series;
 
 import com.wherelee.ctry.modules.CtryPermissionCodes;
-import com.wherelee.edu.modules.platform.aop.RateLimit;
-import com.wherelee.edu.modules.platform.aop.RequirePermission;
+import com.wherelee.base.modules.platform.aop.RateLimit;
+import com.wherelee.base.modules.platform.aop.RequirePermission;
 import com.wherelee.ctry.modules.course.series.dto.SeriesDtos;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

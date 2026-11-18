@@ -1,7 +1,7 @@
 package com.wherelee.ctry.modules.course.teacher;
 
-import com.wherelee.edu.modules.platform.common.BizException;
-import com.wherelee.edu.modules.platform.storage.CosObjectStorage;
+import com.wherelee.base.modules.platform.common.BizException;
+import com.wherelee.base.modules.platform.storage.CosObjectStorage;
 import com.wherelee.ctry.modules.course.teacher.dto.TeacherContentDtos;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package com.wherelee.ctry.modules.commerce.integration;
 
 import com.wherelee.ctry.contracts.commerce.AdminOrderOperations;
-import com.wherelee.edu.modules.payment.PaymentNo;
+import com.wherelee.base.modules.payment.PaymentNo;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

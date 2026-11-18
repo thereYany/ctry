@@ -1,8 +1,8 @@
 package com.wherelee.ctry.modules.commerce.integration;
 
-import com.wherelee.edu.modules.contracts.payment.AdminReconciliationOperations;
-import com.wherelee.edu.modules.contracts.payment.AdminReconciliationOperations.DiffView;
-import com.wherelee.edu.modules.contracts.payment.AdminReconciliationOperations.ReconSummary;
+import com.wherelee.base.modules.contracts.payment.AdminReconciliationOperations;
+import com.wherelee.base.modules.contracts.payment.AdminReconciliationOperations.DiffView;
+import com.wherelee.base.modules.contracts.payment.AdminReconciliationOperations.ReconSummary;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

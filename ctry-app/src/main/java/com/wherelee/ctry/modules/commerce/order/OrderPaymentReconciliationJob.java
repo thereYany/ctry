@@ -1,6 +1,6 @@
 package com.wherelee.ctry.modules.commerce.order;
 
-import com.wherelee.edu.modules.platform.tracing.TraceSpans;
+import com.wherelee.base.modules.platform.tracing.TraceSpans;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

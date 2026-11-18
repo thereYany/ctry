@@ -1,6 +1,6 @@
 package com.wherelee.ctry.contracts.course;
 
-import com.wherelee.edu.modules.platform.common.PageResult;
+import com.wherelee.base.modules.platform.common.PageResult;
 
 import java.time.LocalDateTime;
 import java.util.List;

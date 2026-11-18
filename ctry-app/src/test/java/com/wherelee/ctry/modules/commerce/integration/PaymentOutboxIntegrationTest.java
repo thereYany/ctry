@@ -1,10 +1,10 @@
 package com.wherelee.ctry.modules.commerce.integration;
 
-import com.wherelee.edu.modules.payment.api.PaymentEventTypes;
-import com.wherelee.edu.modules.payment.api.PaymentSettledEvent;
-import com.wherelee.edu.modules.payment.outbox.PaymentOutboxDispatcher;
-import com.wherelee.edu.modules.payment.outbox.PaymentOutboxRepository;
-import com.wherelee.edu.modules.payment.PaymentNo;
+import com.wherelee.base.modules.payment.api.PaymentEventTypes;
+import com.wherelee.base.modules.payment.api.PaymentSettledEvent;
+import com.wherelee.base.modules.payment.outbox.PaymentOutboxDispatcher;
+import com.wherelee.base.modules.payment.outbox.PaymentOutboxRepository;
+import com.wherelee.base.modules.payment.PaymentNo;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
