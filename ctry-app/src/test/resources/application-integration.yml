@@ -1,0 +1,77 @@
+spring:
+  datasource:
+    url: ${IT_DB_URL}
+    username: ${IT_DB_USER:btry}
+    password: ${IT_DB_PASSWORD:}
+    hikari:
+      maximum-pool-size: 24
+      minimum-idle: 4
+      connection-timeout: 10000
+  data:
+    redis:
+      host: ${IT_REDIS_HOST:127.0.0.1}
+      port: ${IT_REDIS_PORT:16379}
+      password: ${IT_REDIS_PASSWORD:}
+      database: ${IT_REDIS_DATABASE:15}
+  flyway:
+    enabled: true
+
+server:
+  port: 0
+
+management:
+  server:
+    port: 0
+
+app:
+  tenant:
+    enforce: true
+    default-tenant-id: 0
+  security:
+    login-protection-enabled: false
+  storage:
+    enabled: true
+    bucket: ci-test-bucket
+    region: ap-guangzhou
+    url-ttl-minutes: 30
+    url-cache-margin-minutes: 5
+  playback:
+    log-retention-days: 30
+  demo:
+    video-key: it/demo.mp4
+    video-duration-seconds: 60
+  invitation:
+    base-url: http://127.0.0.1:5175
+    expiry-hours: 72
+    max-attempts: 20
+    window-minutes: 10
+  upload:
+    max-size-bytes: 4294967296
+    url-ttl-minutes: 60
+    allowed-content-types: video/mp4,video/webm
+  payment:
+    outbox:
+      initial-delay-ms: 3600000
+      interval-ms: 3600000
+    provider: mock
+    mock-enabled: true
+    mock-secret: integration-mock-secret
+    reconcile-interval-ms: 3600000
+    reconcile-initial-delay-ms: 3600000
+    query-after-seconds: 0
+    reconcile-batch-size: 100
+  recon:
+    enabled: false
+  alert:
+    enabled: false
+    initial-delay-ms: 3600000
+  seed:
+    admin-password: Integration1Pass
+    teacher-password: Integration1Pass
+    student-password: Integration1Pass
+
+logging:
+  level:
+    root: warn
+    com.wherelee.ctry: warn
+    com.wherelee.edu: warn

@@ -1,0 +1,71 @@
+name: ci
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: itroot
+          MYSQL_DATABASE: ctry_it
+          MYSQL_USER: btry
+          MYSQL_PASSWORD: btrypass
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd "mysqladmin ping -h localhost"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 20
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+    env:
+      IT_DB_URL: jdbc:mysql://127.0.0.1:3306/ctry_it?allowPublicKeyRetrieval=true&useSSL=false&allowMultiQueries=true
+      IT_DB_USER: btry
+      IT_DB_PASSWORD: btrypass
+      IT_REDIS_HOST: 127.0.0.1
+      IT_REDIS_PORT: 6379
+      IT_REDIS_DATABASE: 15
+      # 预签名 URL 可离线生成；集成测试不真正上传/播放
+      COS_SECRET_ID: ci-dummy
+      COS_SECRET_KEY: ci-dummy
+    steps:
+      - name: 检出 ctry
+        uses: actions/checkout@v4
+
+      - name: 检出 btry 内核（同版本依赖）
+        uses: actions/checkout@v4
+        with:
+          repository: thereYany/btry
+          ref: main
+          path: btry
+
+      - name: JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: 安装 btry 内核到本地 Maven 仓库
+        working-directory: btry/server
+        run: mvn -B -DskipTests install
+
+      - name: ctry 单元测试
+        run: mvn -B test
+
+      - name: ctry 集成测试（含全链路验收）
+        run: mvn -B -Pintegration test

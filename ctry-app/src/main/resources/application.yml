@@ -1,0 +1,196 @@
+server:
+  port: 8084
+  shutdown: graceful
+
+spring:
+  application:
+    name: ctry-course-platform
+  datasource:
+    url: ${DB_URL:jdbc:mysql://127.0.0.1:3306/ctry?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:root}
+    hikari:
+      maximum-pool-size: ${DB_POOL_SIZE:10}
+      minimum-idle: ${DB_POOL_MIN_IDLE:2}
+      connection-timeout: 3000
+      validation-timeout: 1000
+  data:
+    redis:
+      host: ${REDIS_HOST:127.0.0.1}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      database: ${REDIS_DATABASE:0}
+      timeout: 2s
+  flyway:
+    enabled: true
+    # 内核表由 btry 各模块 jar 自带迁移；垂直业务表在 ctry 目录（V9xx，避免与内核版本冲突）
+    locations: classpath:db/migration/platform,classpath:db/migration/identity,classpath:db/migration/payment,classpath:db/migration/ctry
+
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+app:
+  tenant:
+    # 生产必须 true：SQL 未带 tenant_id 条件时直接拒绝，避免"忘了加"的越权
+    enforce: ${TENANT_ENFORCE:true}
+    default-tenant-id: 0
+    # 垂直业务表追加进租户拦截器；内核表已内置
+    extra-tables:
+      - t_series
+      - t_series_chapter
+      - t_series_video
+      - t_student_series
+      - t_learning_progress
+      - t_playback_log
+      - t_order
+  security:
+    cors-allowed-origins: ${CORS_ALLOWED_ORIGINS:http://127.0.0.1:5175,http://localhost:5175}
+    trust-forwarded-headers: ${TRUST_FORWARDED_HEADERS:false}
+    login-protection-enabled: ${LOGIN_PROTECTION_ENABLED:true}
+    login-max-attempts: ${LOGIN_MAX_ATTEMPTS:8}
+    login-ip-max-attempts: ${LOGIN_IP_MAX_ATTEMPTS:40}
+    login-window-minutes: ${LOGIN_WINDOW_MINUTES:10}
+  jwt:
+    secret: ${JWT_SECRET:ctry-demo-jwt-secret-change-before-production-2026}
+    ttl-minutes: ${JWT_TTL_MINUTES:10080}
+    issuer: ${JWT_ISSUER:btry}
+    audience: ${JWT_AUDIENCE:ctry-web}
+  storage:
+    # 课程视频走 COS 直传与预签名播放，必须启用
+    enabled: ${STORAGE_ENABLED:true}
+    bucket: ${COS_BUCKET:rag-1325750042}
+    region: ${COS_REGION:ap-shanghai}
+    url-ttl-minutes: ${COS_URL_TTL_MINUTES:240}
+    connect-timeout-ms: ${COS_CONNECT_TIMEOUT_MS:3000}
+    read-timeout-ms: ${COS_READ_TIMEOUT_MS:15000}
+    max-retries: ${COS_MAX_RETRIES:2}
+    url-cache-margin-minutes: ${PLAYBACK_URL_CACHE_MARGIN_MINUTES:30}
+  playback:
+    log-retention-days: ${PLAYBACK_LOG_RETENTION_DAYS:30}
+  demo:
+    video-key: ${SAMPLE_VIDEO_KEY:edu/video/91/demo-real-181s-faststart-cache.mp4}
+    video-duration-seconds: ${SAMPLE_VIDEO_DURATION_SECONDS:181}
+  invitation:
+    base-url: ${APP_BASE_URL:http://127.0.0.1:5175}
+    expiry-hours: ${INVITE_EXPIRY_HOURS:72}
+    max-attempts: ${INVITE_MAX_ATTEMPTS:20}
+    window-minutes: ${INVITE_WINDOW_MINUTES:10}
+  upload:
+    max-size-bytes: ${UPLOAD_MAX_SIZE_BYTES:4294967296}
+    url-ttl-minutes: ${UPLOAD_URL_TTL_MINUTES:60}
+    allowed-content-types: ${UPLOAD_ALLOWED_CONTENT_TYPES:video/mp4,video/webm}
+  alert:
+    enabled: ${ALERT_ENABLED:true}
+    webhook-url: ${ALERT_WEBHOOK_URL:}
+    window-minutes: ${ALERT_WINDOW_MINUTES:10}
+    error-threshold: ${ALERT_ERROR_THRESHOLD:5}
+    stall-threshold: ${ALERT_STALL_THRESHOLD:10}
+    cache-miss-rate-threshold: ${ALERT_CACHE_MISS_RATE_THRESHOLD:0.8}
+    min-cache-requests: ${ALERT_MIN_CACHE_REQUESTS:20}
+    dedup-minutes: ${ALERT_DEDUP_MINUTES:30}
+    evaluate-interval-ms: ${ALERT_EVALUATE_INTERVAL_MS:300000}
+    initial-delay-ms: ${ALERT_INITIAL_DELAY_MS:60000}
+    payment-paid-unfulfilled-minutes: ${ALERT_PAYMENT_PAID_UNFULFILLED_MINUTES:1}
+    payment-paying-stuck-minutes: ${ALERT_PAYMENT_PAYING_STUCK_MINUTES:15}
+    payment-refund-retry-exhausted-threshold: ${ALERT_PAYMENT_REFUND_RETRY_EXHAUSTED_THRESHOLD:1}
+  seed:
+    # 首次启动创建演示账号的初始密码。留空则随机生成并在启动日志打印一次，
+    # 三个账号都强制首次改密。不要把固定口令写进仓库。
+    admin-password: ${SEED_ADMIN_PASSWORD:}
+    teacher-password: ${SEED_TEACHER_PASSWORD:}
+    student-password: ${SEED_STUDENT_PASSWORD:}
+  payment:
+    provider: ${PAYMENT_PROVIDER:mock}
+    mock-enabled: ${PAYMENT_MOCK_ENABLED:true}
+    mock-secret: ${PAYMENT_MOCK_SECRET:ctry-mock-payment-secret-change-before-production}
+    order-expire-minutes: ${PAYMENT_ORDER_EXPIRE_MINUTES:15}
+    query-after-seconds: ${PAYMENT_QUERY_AFTER_SECONDS:15}
+    reconcile-batch-size: ${PAYMENT_RECONCILE_BATCH_SIZE:20}
+    reconcile-interval-ms: ${PAYMENT_RECONCILE_INTERVAL_MS:15000}
+    reconcile-initial-delay-ms: ${PAYMENT_RECONCILE_INITIAL_DELAY_MS:10000}
+    refund-max-attempts: ${PAYMENT_REFUND_MAX_ATTEMPTS:5}
+    refund-retry-base-seconds: ${PAYMENT_REFUND_RETRY_BASE_SECONDS:30}
+    alipay:
+      app-id: ${ALIPAY_APP_ID:}
+      private-key: ${ALIPAY_PRIVATE_KEY:}
+      alipay-public-key: ${ALIPAY_PUBLIC_KEY:}
+      seller-id: ${ALIPAY_SELLER_ID:}
+      gateway-url: ${ALIPAY_GATEWAY_URL:https://openapi.alipay.com/gateway.do}
+      notify-url: ${ALIPAY_NOTIFY_URL:}
+      return-url: ${ALIPAY_RETURN_URL:}
+      charset: ${ALIPAY_CHARSET:UTF-8}
+      sign-type: ${ALIPAY_SIGN_TYPE:RSA2}
+      format: ${ALIPAY_FORMAT:json}
+      connect-timeout-ms: ${ALIPAY_CONNECT_TIMEOUT_MS:5000}
+      read-timeout-ms: ${ALIPAY_READ_TIMEOUT_MS:15000}
+
+management:
+  server:
+    port: ${MANAGEMENT_PORT:9091}
+    address: ${MANAGEMENT_ADDRESS:127.0.0.1}
+  tracing:
+    enabled: ${TRACING_ENABLED:false}
+    sampling:
+      probability: ${TRACING_SAMPLING_PROBABILITY:0.1}
+  otlp:
+    tracing:
+      endpoint: ${OTLP_TRACING_ENDPOINT:http://127.0.0.1:4318/v1/traces}
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+      group:
+        readiness:
+          include: db,ping,readinessState
+        liveness:
+          include: livenessState,ping
+  metrics:
+    tags:
+      application: ctry-course-platform
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+      percentiles:
+        http.server.requests: 0.5,0.95,0.99
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      redis:
+        slidingWindowSize: 20
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+      playbackLogDb:
+        slidingWindowSize: 20
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+  retry:
+    instances:
+      playbackLogDb:
+        maxAttempts: 2
+        waitDuration: 100ms
+
+logging:
+  file:
+    name: ${LOG_FILE:logs/ctry.log}
+  logback:
+    rollingpolicy:
+      max-file-size: 20MB
+      max-history: 14
+      total-size-cap: 1GB
+  pattern:
+    level: "%5p [traceId=%X{traceId:-}]"
+  level:
+    com.wherelee.ctry: info
+    com.wherelee.edu: info

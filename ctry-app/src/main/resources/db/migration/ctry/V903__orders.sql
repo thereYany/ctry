@@ -1,0 +1,40 @@
+-- 网课垂直域：课程订单。支付细节只保留 payment_no 引用（支付单在 btry-payment 内核）。
+
+CREATE TABLE t_order
+(
+    id                    BIGINT       NOT NULL AUTO_INCREMENT,
+    tenant_id             BIGINT       NOT NULL DEFAULT 0,
+    order_no              VARCHAR(40)  NOT NULL,
+    payment_no            VARCHAR(40)  NULL,
+    user_id               BIGINT       NOT NULL,
+    series_id             BIGINT       NOT NULL,
+    series_title_snapshot VARCHAR(100) NOT NULL,
+    price_cents           BIGINT       NOT NULL,
+    currency              VARCHAR(3)   NOT NULL DEFAULT 'CNY',
+    status                VARCHAR(20)  NOT NULL,
+    pay_channel           VARCHAR(20)  NULL,
+    provider_trade_no     VARCHAR(64)  NULL,
+    client_request_id     VARCHAR(64)  NOT NULL,
+    active_key            VARCHAR(80)  NULL,
+    expire_at             DATETIME(3)  NOT NULL,
+    paid_at               DATETIME(3)  NULL,
+    fulfilled_at          DATETIME(3)  NULL,
+    closed_at             DATETIME(3)  NULL,
+    fulfillment_attempts  INT          NOT NULL DEFAULT 0,
+    last_error            VARCHAR(500) NULL,
+    created_at            DATETIME(3)  NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    updated_at            DATETIME(3)  NOT NULL DEFAULT CURRENT_TIMESTAMP(3)
+                              ON UPDATE CURRENT_TIMESTAMP(3),
+    version               INT          NOT NULL DEFAULT 0,
+    PRIMARY KEY (id),
+    UNIQUE KEY uk_order_tenant_no (tenant_id, order_no),
+    UNIQUE KEY uk_order_active_key (active_key),
+    UNIQUE KEY uk_order_tenant_client (tenant_id, user_id, client_request_id),
+    UNIQUE KEY uk_order_payment_no (payment_no),
+    KEY idx_order_user_created (user_id, created_at),
+    KEY idx_order_status_expire (status, expire_at),
+    KEY idx_order_status_updated (status, updated_at),
+    KEY idx_order_series (series_id),
+    KEY idx_order_user_series_status (user_id, series_id, status, id),
+    KEY idx_order_tenant_status (tenant_id, status)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT ='课程订单';

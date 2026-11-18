@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 父工程复用 btry 的依赖管理；构建前需先在本机 install btry（CI 会 checkout btry 并 install） -->
+    <parent>
+        <groupId>com.wherelee</groupId>
+        <artifactId>btry-parent</artifactId>
+        <version>0.1.0</version>
+        <relativePath/>
+    </parent>
+
+    <artifactId>ctry-parent</artifactId>
+    <version>0.1.0</version>
+    <packaging>pom</packaging>
+    <name>ctry-course-platform</name>
+    <description>网课垂直实现：课程商店、订单履约、权益与学习播放（依赖 btry 通用基座）</description>
+
+    <modules>
+        <module>ctry-app</module>
+    </modules>
+
+    <properties>
+        <btry.version>0.1.0</btry.version>
+    </properties>
+</project>

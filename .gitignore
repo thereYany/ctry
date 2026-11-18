@@ -1,0 +1,33 @@
+# Java / Maven
+target/
+*.class
+
+# Node / 前端
+node_modules/
+dist/
+npm-debug.log*
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# 本地环境与日志
+.env
+.env.*
+!.env.*.example
+*.local
+*.log
+logs/
+
+# 本地运行产物
+server/data/
+
+# Python 字节码
+__pycache__/
+*.pyc
+
+# 压测/JVM 原始产物
+reports/
+*.jfr
+*.hprof
