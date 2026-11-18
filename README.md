@@ -49,7 +49,7 @@ Maven 父工程 `com.wherelee:ctry-parent` 继承已 install 的 `com.wherelee:b
 ### 1. 安装 btry 内核到本地 Maven 仓库
 
 ```bash
-# btry 与本仓库同级，例如 /path/to/btry
+# btry 与本仓库同级或在其 atry/ 目录下（本地布局：~/blrs/atry/btry）
 cd /path/to/btry/server
 mvn -B -DskipTests install
 ```
@@ -110,4 +110,5 @@ GitHub Actions：[`.github/workflows/ci.yml`](.github/workflows/ci.yml)
 ## 相关文档
 
 - [ADR 0001：ctry 与 btry 的边界](docs/adr/0001-ctry-btry-boundary.md)
+- [legacy：btry 拆分前的网课/单体历史资料（存档）](docs/legacy/README.md)
 - btry 内核仓库：<https://github.com/thereYany/btry>
