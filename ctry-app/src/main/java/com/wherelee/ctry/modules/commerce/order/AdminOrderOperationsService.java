@@ -2,7 +2,7 @@ package com.wherelee.ctry.modules.commerce.order;
 
 import com.wherelee.ctry.contracts.commerce.AdminOrderOperations;
 import com.wherelee.ctry.contracts.commerce.OrderDtos;
-import com.wherelee.edu.modules.contracts.payment.PaymentDtos;
+import com.wherelee.ctry.contracts.payment.PaymentDtos;
 import com.wherelee.edu.modules.payment.PaymentRepository;
 import com.wherelee.edu.modules.payment.RefundRecord;
 import com.wherelee.edu.modules.platform.common.BizException;

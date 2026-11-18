@@ -7,7 +7,7 @@ import com.wherelee.edu.modules.platform.aop.Measured;
 import com.wherelee.edu.modules.platform.aop.RateLimit;
 import com.wherelee.edu.modules.platform.aop.RequirePermission;
 import com.wherelee.edu.modules.platform.common.PageResult;
-import com.wherelee.edu.modules.contracts.payment.PaymentDtos;
+import com.wherelee.ctry.contracts.payment.PaymentDtos;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

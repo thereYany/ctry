@@ -4,7 +4,7 @@ import com.wherelee.ctry.contracts.commerce.OrderDtos;
 import com.wherelee.edu.modules.payment.MockSignatureService;
 import com.wherelee.edu.modules.payment.PaymentAttemptRecord;
 import com.wherelee.edu.modules.payment.PaymentConfirmationService;
-import com.wherelee.edu.modules.contracts.payment.PaymentDtos;
+import com.wherelee.ctry.contracts.payment.PaymentDtos;
 import com.wherelee.edu.modules.payment.PaymentGateway;
 import com.wherelee.edu.modules.payment.PaymentMetrics;
 import com.wherelee.edu.modules.payment.PaymentNo;

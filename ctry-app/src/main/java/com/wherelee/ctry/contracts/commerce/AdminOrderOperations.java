@@ -1,6 +1,6 @@
 package com.wherelee.ctry.contracts.commerce;
 
-import com.wherelee.edu.modules.contracts.payment.PaymentDtos;
+import com.wherelee.ctry.contracts.payment.PaymentDtos;
 import com.wherelee.edu.modules.platform.common.PageResult;
 
 import java.time.LocalDateTime;

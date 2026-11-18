@@ -2,7 +2,7 @@ package com.wherelee.ctry.modules.operations.admin;
 
 import com.wherelee.ctry.contracts.commerce.AdminOrderOperations;
 import com.wherelee.ctry.contracts.commerce.AdminOrderOperations.OrderRow;
-import com.wherelee.edu.modules.contracts.payment.PaymentDtos;
+import com.wherelee.ctry.contracts.payment.PaymentDtos;
 import com.wherelee.edu.modules.contracts.identity.AccountDirectory;
 import com.wherelee.edu.modules.contracts.identity.AccountQuery.AccountProfile;
 import com.wherelee.edu.modules.platform.common.PageResult;
