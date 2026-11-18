@@ -103,6 +103,10 @@ app:
     student-password: ${SEED_STUDENT_PASSWORD:}
   payment:
     provider: ${PAYMENT_PROVIDER:mock}
+    app-id: ${PAYMENT_APP_ID:ctry}
+    # ctry 自己有订单补偿/查单调度（OrderPaymentReconciliationJob），关闭内核通用轮询避免重复扫描
+    query:
+      enabled: ${PAYMENT_QUERY_ENABLED:false}
     mock-enabled: ${PAYMENT_MOCK_ENABLED:true}
     mock-secret: ${PAYMENT_MOCK_SECRET:ctry-mock-payment-secret-change-before-production}
     order-expire-minutes: ${PAYMENT_ORDER_EXPIRE_MINUTES:15}
@@ -123,6 +127,13 @@ app:
       charset: ${ALIPAY_CHARSET:UTF-8}
       sign-type: ${ALIPAY_SIGN_TYPE:RSA2}
       format: ${ALIPAY_FORMAT:json}
+      bill:
+        enabled: ${ALIPAY_BILL_ENABLED:false}
+        bill-type: ${ALIPAY_BILL_TYPE:trade}
+        smid: ${ALIPAY_BILL_SMID:}
+        charset: ${ALIPAY_BILL_CHARSET:GBK}
+        connect-timeout-ms: ${ALIPAY_BILL_CONNECT_TIMEOUT_MS:5000}
+        read-timeout-ms: ${ALIPAY_BILL_READ_TIMEOUT_MS:30000}
       connect-timeout-ms: ${ALIPAY_CONNECT_TIMEOUT_MS:5000}
       read-timeout-ms: ${ALIPAY_READ_TIMEOUT_MS:15000}
 

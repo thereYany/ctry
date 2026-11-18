@@ -150,6 +150,22 @@ public class OrderRepository {
                         .formatted(COLUMNS, EXCEPTION_WHERE), MAPPER, limit, offset);
     }
 
+    /** 已支付但尚未履约的业务订单数（订单停留在 PAID 超过阈值）。 */
+    public long countPaidUnfulfilledBefore(java.time.LocalDateTime cutoff) {
+        Long total = jdbc.queryForObject(
+                "SELECT COUNT(*) FROM t_order WHERE status = 'PAID' AND paid_at <= ?",
+                Long.class, java.sql.Timestamp.valueOf(cutoff));
+        return total == null ? 0 : total;
+    }
+
+    /** 长时间停留在 PAYING 的业务订单数。 */
+    public long countPayingBefore(java.time.LocalDateTime cutoff) {
+        Long total = jdbc.queryForObject(
+                "SELECT COUNT(*) FROM t_order WHERE status = 'PAYING' AND updated_at <= ?",
+                Long.class, java.sql.Timestamp.valueOf(cutoff));
+        return total == null ? 0 : total;
+    }
+
     public long countAdminExceptions() {
         Long total = jdbc.queryForObject("SELECT COUNT(*) FROM t_order " + EXCEPTION_WHERE, Long.class);
         return total == null ? 0 : total;

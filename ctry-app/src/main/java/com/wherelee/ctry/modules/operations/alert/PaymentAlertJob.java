@@ -1,6 +1,7 @@
 package com.wherelee.ctry.modules.operations.alert;
 
 import com.wherelee.base.modules.contracts.payment.PaymentAlertQueries;
+import com.wherelee.ctry.modules.commerce.order.OrderRepository;
 import com.wherelee.base.modules.platform.alert.AlertPublisher;
 import com.wherelee.base.modules.platform.resilience.LocalFallbackCache;
 import lombok.extern.slf4j.Slf4j;
@@ -19,17 +20,20 @@ public class PaymentAlertJob {
 
     private final AlertProperties properties;
     private final PaymentAlertQueries paymentAlertQueries;
+    private final OrderRepository orderRepository;
     private final AlertNotifier notifier;
     private final AlertPublisher alertPublisher;
     private final LocalFallbackCache dedupCache;
 
     public PaymentAlertJob(AlertProperties properties,
                            PaymentAlertQueries paymentAlertQueries,
+                           OrderRepository orderRepository,
                            AlertNotifier notifier,
                            AlertPublisher alertPublisher,
                            LocalFallbackCache dedupCache) {
         this.properties = properties;
         this.paymentAlertQueries = paymentAlertQueries;
+        this.orderRepository = orderRepository;
         this.notifier = notifier;
         this.alertPublisher = alertPublisher;
         this.dedupCache = dedupCache;
@@ -44,13 +48,13 @@ public class PaymentAlertJob {
             return;
         }
         LocalDateTime now = LocalDateTime.now();
-        long paidStuck = paymentAlertQueries.countPaidUnfulfilledBefore(
+        long paidStuck = orderRepository.countPaidUnfulfilledBefore(
                 now.minusMinutes(properties.safePaymentPaidUnfulfilledMinutes()));
         if (paidStuck > 0) {
             emit("PAYMENT_PAID_UNFULFILLED", "HIGH",
                     "已支付但未履约订单 " + paidStuck + " 笔");
         }
-        long payingStuck = paymentAlertQueries.countPayingBefore(
+        long payingStuck = orderRepository.countPayingBefore(
                 now.minusMinutes(properties.safePaymentPayingStuckMinutes()));
         if (payingStuck > 0) {
             emit("PAYMENT_PAYING_STUCK", "MEDIUM",
